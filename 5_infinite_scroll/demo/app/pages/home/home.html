@@ -1,19 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Pull to Refresh
+      Infinite Scroll
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-refresher (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
-  <p>{{toastLevel}}</p>
-
+  <ion-list>
+    <ion-item *ngFor="let i of items">{{i}}</ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="loadItems($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
 
 
